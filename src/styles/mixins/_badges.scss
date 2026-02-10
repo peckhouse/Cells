@@ -1,0 +1,29 @@
+@mixin badge-reset() {
+  -webkit-tap-highlight-color: transparent;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-font-smoothing: inherit;
+
+  appearance: none;
+  background: transparent;
+  border-radius: 0;
+  color: inherit;
+  border: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin badge-color-scheme($color) {
+  border: var(--cell-badge-border-size) solid var(--cell-badge-border-color-#{$color});
+  background-color: var(--cell-badge-bg-color-#{$color});
+
+  :deep(*) {
+    color: var(--cell-badge-color-#{$color});
+    fill: var(--cell-badge-color-#{$color});
+  }
+
+  .cell-badge__close {
+    color: var(--cell-badge-color-#{$color});
+    fill: var(--cell-badge-color-#{$color});
+  }
+}

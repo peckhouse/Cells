@@ -19,11 +19,13 @@
 </template>
 
 <script setup lang="ts">
-import { Primitive } from 'radix-vue'
+import { Primitive } from 'reka-ui'
 import { computed } from 'vue'
-import { RouterLink, RouteLocationRaw } from 'vue-router'
+import { RouterLink, type RouteLocationRaw } from 'vue-router'
 
-import { ColorSchemeName } from '@/types/colors'
+// import { ColorSchemeName } from '@/types/colors'
+
+type ColorSchemeName = 'white' | 'green' | 'red' | 'ghost-white' | 'ghost-red'
 
 type Props = {
   color?: ColorSchemeName

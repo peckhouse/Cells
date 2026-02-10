@@ -5,7 +5,7 @@
   >
     <span class="cell-checkbox__content" :class="[`cell-checkbox__content--${props.direction}`]">
       <CheckboxRoot
-        v-model:checked="checked"
+        v-model="checked"
         v-bind="$attrs"
         :id
         class="cell-checkbox__root"
@@ -16,25 +16,25 @@
         </CheckboxIndicator>
       </CheckboxRoot>
 
-      <label :for="id" class="cell-checkbox__label"><slot /></label>
+      <label v-if="$slots.default" :for="id" class="cell-checkbox__label"><slot /></label>
     </span>
   </Primitive>
 </template>
 
 <script setup lang="ts">
-import { CheckboxIndicator, CheckboxRoot, CheckboxRootProps, Primitive } from 'radix-vue'
+import { CheckboxIndicator, CheckboxRoot, Primitive, type CheckboxRootProps } from 'reka-ui'
 import { useId } from 'vue'
 
 import CheckedIcon from '@/assets/icons/checked.svg'
 import IndeterminatedIcon from '@/assets/icons/indeterminated.svg'
 
-export type BaseCheckboxValue = CheckboxRootProps['checked']
+export type CellCheckboxValue = CheckboxRootProps['modelValue']
 
 defineOptions({
   inheritAttrs: false
 })
 
-const checked = defineModel<BaseCheckboxValue>()
+const checked = defineModel<CellCheckboxValue>()
 const id = useId()
 
 type Props = {
@@ -49,6 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 .cell-checkbox {
+  $cellCheckbox: &;
 
   :deep(.cell-checkbox__root) {
     @include button-reset();
@@ -114,14 +115,21 @@ const props = withDefaults(defineProps<Props>(), {
   &__content {
     align-items: center;
     display: flex;
-    gap: 8px;
-
+    
     &--ltr {
       justify-content: flex-start;
+      
+      #{$cellCheckbox}__label {
+        margin-left: 8px;
+      }
     }
 
     &--rtl {
       justify-content: flex-end;
+      
+      #{$cellCheckbox}__label {
+        margin-right: 8px;
+      }
     }
   }
 }

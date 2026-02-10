@@ -166,8 +166,27 @@
         :model-value="dropdownTwo"
         :options="optionsList"
         placeholder="Choose fruits"
-        @update:modelValue="afterUpdateModel"
+        multiple
+        @update:modelValue="(value) => afterUpdateModel(value as string)"
       />
+
+
+      <div>
+        <CellDropdown
+          v-model="dropdownThree"
+          :options="optionsList"
+          placeholder="Choose fruits"
+          multiple
+          indicator="right"
+          trigger-type="hidden"
+        />
+
+        <ul>
+          <li v-for="(item, index) in dropdownThree" :key="index">{{ item }}</li>
+        </ul>
+      </div>
+
+
     </div>
   </section>
 
@@ -182,7 +201,7 @@
       </li>
       <li>
         <CellCheckbox v-model="checkboxTrue" />
-        <CellCheckbox v-model="checkboxTrueTest" disabled></CellCheckbox>
+        <CellCheckbox v-model="checkboxTrue" disabled></CellCheckbox>
         <CellCheckbox v-model="checkboxTrue" >Label</CellCheckbox>
         <CellCheckbox v-model="checkboxTrue" disabled>Label</CellCheckbox>
       </li>
@@ -195,6 +214,107 @@
       </li>
     </ul>
   </section>
+
+  <section class="design-system-badges">
+    <h2>Badges</h2>
+
+    <h3>Gray Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge size="small">Small</CellBadge>
+      <CellBadge size="medium">Medium</CellBadge>
+      <CellBadge size="large">Large</CellBadge>
+      <CellBadge size="small" closable @close="handleBadgeClose">Closable Small</CellBadge>
+      <CellBadge size="medium" closable @close="handleBadgeClose">Closable Medium</CellBadge>
+      <CellBadge size="large" closable @close="handleBadgeClose">Closable Large</CellBadge>
+    </div>
+
+    <h3>Green Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="green" size="small">Small</CellBadge>
+      <CellBadge color="green" size="medium">Medium</CellBadge>
+      <CellBadge color="green" size="large">Large</CellBadge>
+      <CellBadge color="green" size="small" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="green" size="medium" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="green" size="large" closable @close="handleBadgeClose">Closable</CellBadge>
+    </div>
+
+    <h3>Red Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="red" size="small">Small</CellBadge>
+      <CellBadge color="red" size="medium">Medium</CellBadge>
+      <CellBadge color="red" size="large">Large</CellBadge>
+      <CellBadge color="red" size="small" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="red" size="medium" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="red" size="large" closable @close="handleBadgeClose">Closable</CellBadge>
+    </div>
+
+    <h3>Blue Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="blue" size="small">Small</CellBadge>
+      <CellBadge color="blue" size="medium">Medium</CellBadge>
+      <CellBadge color="blue" size="large">Large</CellBadge>
+      <CellBadge color="blue" size="small" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="blue" size="medium" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="blue" size="large" closable @close="handleBadgeClose">Closable</CellBadge>
+    </div>
+
+    <h3>Orange Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="orange" size="small">Small</CellBadge>
+      <CellBadge color="orange" size="medium">Medium</CellBadge>
+      <CellBadge color="orange" size="large">Large</CellBadge>
+      <CellBadge color="orange" size="small" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="orange" size="medium" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="orange" size="large" closable @close="handleBadgeClose">Closable</CellBadge>
+    </div>
+
+    <h3>Yellow Badge</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="yellow" size="small">Small</CellBadge>
+      <CellBadge color="yellow" size="medium">Medium</CellBadge>
+      <CellBadge color="yellow" size="large">Large</CellBadge>
+      <CellBadge color="yellow" size="small" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="yellow" size="medium" closable @close="handleBadgeClose">Closable</CellBadge>
+      <CellBadge color="yellow" size="large" closable @close="handleBadgeClose">Closable</CellBadge>
+    </div>
+
+    <h3>Multilingual Support</h3>
+    <div class="design-system-badges__row">
+      <CellBadge color="gray">English Text</CellBadge>
+      <CellBadge color="green">日本語テキスト</CellBadge>
+      <CellBadge color="blue">한국어 텍스트</CellBadge>
+      <CellBadge color="orange">中文文本</CellBadge>
+      <CellBadge color="red">Текст на русском</CellBadge>
+      <CellBadge color="yellow">النص العربي</CellBadge>
+    </div>
+
+    <h3>Clickable Badges</h3>
+    <div class="design-system-badges__row">
+      <CellBadge href="https://example.com" color="blue">Link Badge</CellBadge>
+      <CellBadge href="#" color="green">Another Link</CellBadge>
+      <CellBadge href="https://example.com" color="red" closable @close="handleBadgeClose">Link with Close</CellBadge>
+
+      <CellBadge
+        @click="handleBadgeClick"
+        as-button color="red" closable @close="handleBadgeClose">Link with Close</CellBadge>
+    </div>
+
+    <h3>Composition with Other Components</h3>
+    <div class="design-system-badges__row">
+      <CellButton size="small">
+        <template #left-icon>
+          <CellBadge color="red" size="small">3</CellBadge>
+        </template>
+        Notifications
+      </CellButton>
+      <CellButton size="medium" color="green">
+        <template #right-icon>
+          <CellBadge color="yellow" size="small">New</CellBadge>
+        </template>
+        Feature
+      </CellButton>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -202,8 +322,9 @@ import { ref } from 'vue'
 
 import PlaceholderIcon from '@/assets/icons/placeholder.svg'
 import CellButton from '@/components/cells/button/CellButton.vue'
-import CellCheckbox, { CellCheckboxValue } from '@/components/cells/checkbox/CellCheckbox.vue'
+import CellCheckbox, { type CellCheckboxValue } from '@/components/cells/checkbox/CellCheckbox.vue'
 import CellDropdown from '@/components/cells/dropdown/CellDropdown.vue'
+import CellBadge from '@/components/cells/badge/CellBadge.vue'
 
 const optionsList = [
   { value: 'apple', text: 'Apple' },
@@ -215,13 +336,22 @@ const optionsList = [
 
 const checkboxIndeterminate = ref<CellCheckboxValue>('indeterminate')
 const checkboxTrue =  ref(true)
-const checkboxTrueTest =  ref(true)
 const checkboxFalse = ref(false)
 const dropdownOne = ref()
 const dropdownTwo = ref()
+const dropdownThree = ref()
 
 const afterUpdateModel = (value: string) => {
+  console.log('value', value)
   dropdownTwo.value = value
+}
+
+const handleBadgeClose = () => {
+  console.log('Badge closed')
+}
+
+const handleBadgeClick = () => {
+  console.log('CLICK')
 }
 </script>
 
@@ -270,6 +400,31 @@ const afterUpdateModel = (value: string) => {
   div {
     display: inline-block;
     margin: 0 16px 0 0;
+  }
+}
+
+.design-system-badges {
+  padding: 32px;
+
+  h3 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--c-gray-60);
+    border-radius: 8px;
+    margin-bottom: 16px;
+
+    p {
+      width: 100%;
+      line-height: 2;
+    }
   }
 }
 </style>

@@ -1,0 +1,56 @@
+:root {
+  --cell-badge-border-size: 1px;
+
+  // Colors: GRAY
+  --cell-badge-bg-color-gray: var(--c-gray-70);
+  --cell-badge-color-gray: var(--c-gray-120);
+  --cell-badge-border-color-gray: var(--c-gray-80);
+
+  // Colors: GREEN
+  --cell-badge-bg-color-green: var(--c-green-70);
+  --cell-badge-color-green: var(--c-green-120);
+  --cell-badge-border-color-green: var(--c-green-80);
+
+  // Colors: RED
+  --cell-badge-bg-color-red: var(--c-red-70);
+  --cell-badge-color-red: var(--c-red-120);
+  --cell-badge-border-color-red: var(--c-red-80);
+
+  // Colors: BLUE
+  --cell-badge-bg-color-blue: var(--c-blue-70);
+  --cell-badge-color-blue: var(--c-blue-120);
+  --cell-badge-border-color-blue: var(--c-blue-80);
+
+  // Colors: ORANGE
+  --cell-badge-bg-color-orange: var(--c-orange-70);
+  --cell-badge-color-orange: var(--c-orange-120);
+  --cell-badge-border-color-orange: var(--c-orange-80);
+
+  // Colors: YELLOW
+  --cell-badge-bg-color-yellow: var(--c-yellow-70);
+  --cell-badge-color-yellow: var(--c-yellow-120);
+  --cell-badge-border-color-yellow: var(--c-yellow-80);
+
+  // Sizes
+  --cell-badge-height-small: 20px;
+  --cell-badge-height-medium: 24px;
+  --cell-badge-height-large: 28px;
+
+  --cell-badge-font-weight: 500;
+
+  --cell-badge-font-size-small: 12px;
+  --cell-badge-font-size-medium: 14px;
+  --cell-badge-font-size-large: 16px;
+
+  --cell-badge-line-height-small: 1.2;
+  --cell-badge-line-height-medium: 1.3;
+  --cell-badge-line-height-large: 1.4;
+
+  --cell-badge-padding-small: 0 4px;
+  --cell-badge-padding-medium: 0 8px;
+  --cell-badge-padding-large: 0 12px;
+
+  --cell-badge-close-icon-size-small: 12px;
+  --cell-badge-close-icon-size-medium: 14px;
+  --cell-badge-close-icon-size-large: 16px;
+}
